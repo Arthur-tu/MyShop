@@ -21,7 +21,8 @@ public class Cart {
     @SequenceGenerator(name = SEQ_NAME, sequenceName = SEQ_NAME, allocationSize = 1)
     private Long id;
 
-    @OneToOne(mappedBy = "cart")
+    @OneToOne
+    @JoinColumn(name = "user_id")
     private User user;
 
     @ManyToMany

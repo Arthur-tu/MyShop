@@ -3,15 +3,13 @@ create sequence users_seq start 1 increment 1;
 
 create table users (
   id int8 not null,
-  username varchar(255),
+  name varchar(255),
   password varchar(255) not null,
   email varchar(255) not null unique,
   phone varchar(255) not null unique,
   archive boolean not null,
   role varchar(255),
-  cart_id int8,
-  primary key (id),
-  foreign key (cart_id) references carts(id)
+  primary key (id)
 );
 
 -- CATEGORIES
@@ -47,7 +45,6 @@ create table products_categories (
 create table carts_products (
   cart_id int8 not null,
   product_id int8 not null,
-  primary key(cart_id, product_id),
   foreign key (product_id) references products(id),
   foreign key (cart_id) references carts(id)
 );
@@ -57,7 +54,9 @@ create sequence carts_seq start 1 increment 1;
 
 create table carts (
   id int8 not null,
-  primary key (id)
+  user_id int8,
+  primary key (id),
+  foreign key (user_id) references users(id)
 );
 
 -- ORDERS

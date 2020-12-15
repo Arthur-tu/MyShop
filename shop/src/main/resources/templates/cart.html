@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Cart</title>
+</head>
+<body>
+<div th:insert="~{fragments/menu :: #nav-menu}"></div>
+<h2>All sum -> <b th:text="${cart.sum}">444.55</b></h2>
+
+<table border="1" align="center">
+    <tr>
+        <td>Title</td>
+        <td>Amount</td>
+        <td>Price</td>
+        <td>Sum</td>
+        <td></td>
+    </tr>
+    <tr th:each="detail : ${cart.cartDetails}">
+        <td th:text="${detail.title}">Cheese</td>
+        <td th:text="${detail.amount}">2</td>
+        <td th:text="${detail.price}">12.0</td>
+        <td th:text="${detail.sum}">24.0</td>
+        <td><a href="#">Remove from cart</a></td>
+    </tr>
+</table>
+
+</body>
+</html>

@@ -14,22 +14,22 @@ import javax.persistence.*;
 @Table(name = "users")
 public class User {
     private static final String SEQ_NAME = "users_seq";
+
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = SEQ_NAME)
     @SequenceGenerator(name = SEQ_NAME, sequenceName = SEQ_NAME, allocationSize = 1)
+    private Long id;
 
-    @OneToOne
-    @JoinColumn(name = "cart_id")
+    @OneToOne(mappedBy = "user", cascade = CascadeType.REMOVE)
+
     private Cart cart;
 
     @Enumerated(EnumType.STRING)
     private Role role;
 
-    private Long id;
-    private String username;
+    private String name;
     private String password;
     private String email;
     private String phone;
     private boolean archive;
-
 }

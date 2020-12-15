@@ -1,4 +1,4 @@
-insert into users (id, username, password, email, phone, archive, role, cart_id)
-values (1, 'artur', 'pass', 'artur@mail.ru', '7770777', false, 'ADMIN', null);
+insert into users (id, name, password, email, phone, archive, role)
+values (1, 'admin', 'pass', 'admin@mail.ru', '1111', false, 'ADMIN');
 
 alter sequence users_seq restart with 2; 
